@@ -29,6 +29,15 @@ module.exports = {
           'style-loader',
           'css-loader'
         ],          //要用什么加载器去处理这个模块文件
+      },
+      {
+        test:/\.scss$/,    //找到匹配的文件模块
+        //注意： 要倒着写
+        use:[
+          'style-loader',
+          'css-loader',
+          'sass-loader'
+        ],   
       }
     ]
   },

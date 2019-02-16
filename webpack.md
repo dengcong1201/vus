@@ -107,3 +107,23 @@
 
   1、npm install --save-dev css-loader style-loader
   2、配置
+
+
+##  项目中使用sass
+  1、是什么？
+    css的预处理语言。能让使用js那样去使用css。可以定义变量了，定义方法
+
+  2、好处
+    - 写样式更快
+    - 嵌套写法
+  
+  3、除了sass、less、styules
+
+  4、webpack配置中如何使用sass
+    - 安装sass-loader  (注意：除了安装sass-loader node-sass)
+    - 配置
+    -使用
+
+  5、sass 有两个文件后缀
+      .scss (最常用)
+      .sass (不要 {} )

@@ -5,7 +5,7 @@
 
 // import Vue from 'vue/dist/vue.esm.js';
 import Vue from 'vue';
-import './styles/style.css';
+import './styles/style.scss';
 
 
 new Vue({
