@@ -19,6 +19,20 @@ module.exports = {
     filename:'bundle.js',                   //打包之后文件的名字
   },
 
+  module:{
+    //定义加载器的规则
+    rules:[
+      {
+        test:/\.css$/,    //找到匹配的文件模块
+        //注意： 要倒着写
+        use:[
+          'style-loader',
+          'css-loader'
+        ],          //要用什么加载器去处理这个模块文件
+      }
+    ]
+  },
+
   //插件
   plugins:[
     //自动生成一个 HTML 文件在出口的位置，并且会自动在这个生成的文件中引入 打包生成的js文件。

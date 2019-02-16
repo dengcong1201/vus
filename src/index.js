@@ -5,6 +5,7 @@
 
 // import Vue from 'vue/dist/vue.esm.js';
 import Vue from 'vue';
+import './styles/style.css';
 
 
 new Vue({
@@ -13,6 +14,9 @@ new Vue({
     msg:'hello',
     abc:'青青99'
   },
+  template:`
+    <h1>我的天</h1>
+  `
   
   //我将采用 render函数的方式去渲染页面元素
   // render:function(h){

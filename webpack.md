@@ -99,3 +99,11 @@
     1、npm install --save-dev webpack-dev-server
     2、配置
     3、webpack 启动换成 webpack-dev-server 启动
+
+
+## 引入模块的方式去引入 样式文件报错
+    css-loader         对css文件做转换   转换成 webpack所能识别的模块css文件
+    style-loader       对上一步转换之后的 css模块文件在做解析，解析到页面的style标签中去
+
+  1、npm install --save-dev css-loader style-loader
+  2、配置
