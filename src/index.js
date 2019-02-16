@@ -10,7 +10,8 @@ import Vue from 'vue';
 new Vue({
   el:'#app',
   data:{
-    msg:'hello'
+    msg:'hello',
+    abc:'青青99'
   },
   
   //我将采用 render函数的方式去渲染页面元素

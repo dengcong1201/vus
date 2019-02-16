@@ -92,3 +92,10 @@
 
         修改 引入的vue文件为 esm完整版的版本
             ps：请不要直接修改node_modules下面vue的package.json 可以通过设置 webpack的别名这个选项完成
+
+
+## 自动打包(开发时的打包)
+  webpack-dev-server资源包
+    1、npm install --save-dev webpack-dev-server
+    2、配置
+    3、webpack 启动换成 webpack-dev-server 启动
