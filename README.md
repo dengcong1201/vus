@@ -50,7 +50,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     2、npm模块方式
 
   调用它的api
-  
+
 
   1、get
     axios.get(url,conifg)
@@ -62,7 +62,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
     axios({
       methods:'',
       url:''
-    })  
+    })
 
 
   #config配置
@@ -77,3 +77,28 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 
   #后台在 node.js 中设置允许跨域
 
+
+
+--------------------------
+
+
+# 路由
+  vue 有一个官方提供的 路由类库 vue-router
+
+  ## 使用步骤
+    1、安装
+      npm install vue-router --save
+
+      yarn add vue-router
+
+    2、配置 vue-router 的配置文件(主要地方)
+
+    3、在 new   Vue的地方，引入配置文件，并设置router的选项
+
+    4、页面中哪里需要切换，哪里就放置一个坑（router-view）（路由视图）
+
+    5、需要跳转页面，可以使用 router-link
+
+  ### vue-router 引入之后，全局给了我们两个组件
+    1、router-link => a
+    2、router-view => div => 坑（路由视图）
