@@ -102,3 +102,10 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
   ### vue-router 引入之后，全局给了我们两个组件
     1、router-link => a
     2、router-view => div => 坑（路由视图）
+
+
+
+  #### 路由的层级
+    1、一级路由   整个页面发生变化
+    2、二级路由   一级路由页面中的某个位置有公用，其余位置的变化，那个其余的路由就是二级路由
+    3、三级路由
