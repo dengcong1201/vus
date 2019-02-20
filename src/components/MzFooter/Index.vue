@@ -1,12 +1,12 @@
 <template>
   <footer class="mz-footer">
-    <router-link to="/films">
+    <router-link to="/films" active-class="a">
       <i class="iconfont icon-dianying"></i>电影
     </router-link>
-    <router-link to="/cinemas">
+    <router-link to="/cinemas" active-class="a">
       <i class="iconfont icon-yingyuana"></i>影院
     </router-link>
-    <router-link to="/center">
+    <router-link to="/center" active-class="a">
       <i class="iconfont icon-wode"></i>我的
     </router-link>
   </footer>
@@ -32,6 +32,10 @@
 
     i {
       font-size: 22px;
+    }
+
+    &.a {
+      color: #ff5f16;
     }
   }
 }
