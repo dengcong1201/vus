@@ -18,6 +18,9 @@ import City from './views/City.vue';
 import Home from './views/Home.vue';
 import Detail from './views/Detail.vue';
 import Login from './views/Login.vue';
+import Card from './views/Card.vue';
+import Money from './views/Money.vue';
+import System from './views/System.vue';
 
 Vue.use(VueRouter);
 
@@ -76,67 +79,16 @@ let router = new VueRouter({
       // }
     },
     {
-      path: '/card/:abc',
-      component: {
-        render (h) {
-          let that = this;
-          return h('div', [
-            '卖座卡页面',
-            h('button', {
-              on: {
-                click: function () {
-                  that.reload();
-                }
-              }
-            }, [
-              '点击',
-              h('span', '你好')
-            ])
-          ])
-        },
-        methods: {
-          reload () {
-            // router.push('/card/月');
-            router.push({
-              path: '/card/月'
-            })
-          }
-        },
-        // 组件内的路由守卫函数
-        beforeRouteEnter (to, from, next) {
-          console.log('enter');
-          next();
-        },
-        // 只会在页面使用了路由参数的时候
-        beforeRouteUpdate (to, from, next) {
-          console.log('Update');
-          next();
-        },
-        beforeRouteLeave (to, from, next) {
-          console.log('Leave');
-          next();
-        }
-      }
-      // 路由独享的钩子函数
-      // beforeEnter (to, from, next) {
-      //   next(false);
-      // }
+      path: '/card',
+      component: Card
     },
     {
       path: '/money',
-      component: {
-        render (h) {
-          return h('div', '余额页面')
-        }
-      }
+      component: Money
     },
     {
       path: '/system',
-      component: {
-        render (h) {
-          return h('div', '设置页面')
-        }
-      }
+      component: System
     },
     {
       path: '/login',
@@ -158,20 +110,27 @@ let router = new VueRouter({
  * naxt  是否允许去
  *        naxt('/login')
  */
-// router.beforeEach((to, from, next) => {
-//   if (to.path === '/card' || to.path === '/money' || to.path === '/system') {
-//     // 阻止
-//     // next(false);
-//     // 字符串模式
-//     // next('/login');
-//     // 对象模式
-//     next({
-//       path: '/login'
-//     })
-//   } else {
-//     next();
-//   }
-// })
+router.beforeEach((to, from, next) => {
+  let nickname = sessionStorage.getItem('nickname');
+  let list = ['/card', '/money', '/system'];
+  if (list.indexOf(to.path) > -1 && !nickname) {
+    // 阻止
+    // next(false);
+    // 字符串模式
+    // next('/login');
+    // 对象模式
+    next({
+      path: '/login',
+      query: {
+        redirect: to.fullPath
+      }
+    })
+  } else {
+    next();
+  }
+})
+
+//
 
 export default router;
 // 1、VueRouter
