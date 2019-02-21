@@ -11,16 +11,16 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Film from './views/Film.vue';
-import Cinema from './views/Cinema.vue';
-import Center from './views/Center.vue';
-import City from './views/City.vue';
-import Home from './views/Home.vue';
-import Detail from './views/Detail.vue';
-import Login from './views/Login.vue';
-import Card from './views/Card.vue';
-import Money from './views/Money.vue';
-import System from './views/System.vue';
+// import Film from './views/Film.vue';
+// import Cinema from './views/Cinema.vue';
+// import Center from './views/Center.vue';
+// import City from './views/City.vue';
+// import Home from './views/Home.vue';
+// import Detail from './views/Detail.vue';
+// import Login from './views/Login.vue';
+// import Card from './views/Card.vue';
+// import Money from './views/Money.vue';
+// import System from './views/System.vue';
 
 Vue.use(VueRouter);
 
@@ -30,22 +30,22 @@ let router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: Home,
+      component: () => import('./views/Home.vue'),
       children: [
         // ps: 不是一级路由的话，path路径前面不要加 /
         // ps: 二级或二级以上的路径，他们的url路径，是会从一级路由开始一直做追加的
         // localhost:8080/#/home/films
         {
           path: 'films', // 就是url路径
-          component: Film
+          component: () => import('./views/Film.vue')
         },
         {
           path: 'cinemas',
-          component: Cinema
+          component: () => import('./views/Cinema.vue')
         },
         {
           path: 'center',
-          component: Center
+          component: () => import('./views/Center.vue')
         },
         // 空的儿子
         {
@@ -59,14 +59,12 @@ let router = new VueRouter({
     // 城市页
     {
       path: '/city',
-      components: {
-        top: City
-      }
+      components: () => import('./views/City/Index.vue')
     },
     // 详情页
     {
       path: '/detail/:id',
-      component: Detail,
+      component: () => import('./views/Detail.vue'),
       props: true
       // props: {
       //   name: '月',
@@ -80,19 +78,19 @@ let router = new VueRouter({
     },
     {
       path: '/card',
-      component: Card
+      component: () => import('./views/Card.vue')
     },
     {
       path: '/money',
-      component: Money
+      component: () => import('./views/Money.vue')
     },
     {
       path: '/system',
-      component: System
+      component: () => import('./views/System.vue')
     },
     {
       path: '/login',
-      component: Login
+      component: () => import('./views/Login.vue')
     },
     // 设置一个 通配符的 一级路由，当url地址无法与上面的规则匹配的时候，就会与这个匹配
     {
