@@ -26,6 +26,12 @@ Vue.use(VueRouter);
 
 let router = new VueRouter({
   mode: 'hash',
+  scrollBehavior (to, from, savedPosition) {
+    return {
+      x: 0,
+      y: 0
+    }
+  },
   // 配置路由对照表 url -> 视图组件
   routes: [
     {
@@ -59,13 +65,13 @@ let router = new VueRouter({
     // 城市页
     {
       path: '/city',
-      components: () => import('./views/City/Index.vue')
+      component: () => import('./views/City/Index.vue')
     },
     // 详情页
     {
       path: '/detail/:id',
-      component: () => import('./views/Detail.vue'),
-      props: true
+      component: () => import('./views/Detail.vue')
+      // props: true
       // props: {
       //   name: '月',
       //   age:19

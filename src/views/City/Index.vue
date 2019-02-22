@@ -1,42 +1,3 @@
-/*
-  var arr = [
-    {
-      name: '鞍山',
-      pinyin: 'anshan'
-    },
-    {
-      name: '北京',
-      pinyin: 'beijing'
-    },
-    ....
-  ]
-
-  var arr1 = [
-    {
-      py: 'A',
-      list: [
-        {
-          name: '鞍山'
-        },
-        {
-          name: '安庆'
-        }
-        ...
-      ]
-    },
-    {
-      py: 'B',
-      list: [
-        {
-          name: '北京'
-        }
-        。。。
-      ]
-    }
-  ]
-
- */
-
 <template>
   <div class="mz-city">
     <MzHeader title="当前城市-">{{ filterCityData }}</MzHeader>
@@ -103,6 +64,88 @@ export default {
   components: {
     MzHeader
   },
+
+  data () {
+    return {
+      // 城市数据列表
+      cityData: []
+    }
+  },
+
+  computed: {
+    // 处理之后的城市数据
+    filterCityData () {
+      let hash = {};
+      let i = 0;
+      let res = [];
+
+      this.cityData.forEach(item => {
+        // 1、得到当前城市的 首字母
+        let firstLetter = item.pinyin.substr(0, 1).toUpperCase();
+        // 判断当前城市的 首字母是循环过程中第一次出现，还是多次出现
+        if (hash[firstLetter]) {
+          // 存在
+          let index = hash[firstLetter] - 1;
+          res[index].list.push(item);
+        } else {
+          // 不存在
+          hash[firstLetter] = ++i;
+          let obj = {};
+          obj.py = firstLetter;
+          obj.list = [item];
+          res.push(obj);
+        }
+      })
+
+      let temp = res.sort((a, b) => {
+        return a.py.charCodeAt() - b.py.charCodeAt();
+      })
+      return temp;
+    },
+
+    /**
+     * 右侧显示的字母数据
+     */
+    filterLetters () {
+      return this.filterCityData.map(item => {
+        return item.py;
+      })
+    }
+  },
+
+  methods: {
+    /**
+     * 获取城市列表数据
+     */
+    getCityData () {
+      axios.get('./json/city.json').then(response => {
+        let res = response.data;
+        if (res.status === 0) {
+          // res.data.cities;
+          this.cityData = res.data.cities;
+        } else {
+          alert(res.msg);
+        }
+      })
+    },
+
+    /**
+     * 右侧的拼音字母点击
+     * @param {String} py 点击的字母
+     */
+    hh (py) {
+      // 1、得到左侧距离顶部的距离
+      let el = document.getElementById(py);
+      console.log(el.offsetTop);
+      // 2、操作滚动条进行滚动
+      document.getElementById('lv-indexlist__content').scrollTop = el.offsetTop;
+      console.log(document.getElementById('lv-indexlist__content').scrollTop);
+    }
+  },
+
+  created () {
+    this.getCityData();
+  }
 }
 </script>
 
