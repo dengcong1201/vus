@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <div class="home-film">
+    <router-link tag="div" to="/city" class="city-fixed">
+      <span>{{ curCityName }}</span>
+      <i class="iconfont icon-xiala" style="font-size: 10px;"></i>
+    </router-link>
+
     <MzBanner></MzBanner>
     <MzTabs></MzTabs>
     <button @click="goCity">去城市选中页面</button>
-    <ul>
-      <router-link tag="li" to="/detail/100">流浪地球</router-link>
-      <router-link tag="li" to="/detail/200">十二生肖</router-link>
-      <router-link tag="li" to="/detail/300">喜剧之王</router-link>
-    </ul>
   </div>
 </template>
 
@@ -20,6 +20,12 @@ export default {
   components: {
     MzBanner,
     MzTabs
+  },
+
+  computed: {
+    curCityName () {
+      return this.$store.state.curCityName
+    }
   },
 
   methods: {
@@ -43,3 +49,26 @@ export default {
   }
 }
 </script>
+
+<style lang="less">
+  .home-film {
+    .city-fixed {
+      position: absolute;
+      top: 18px;
+      left: 7px;
+      color: #fff;
+      z-index: 10;
+      font-size: 13px;
+      background: rgba(0, 0, 0, .2);
+      height: 30px;
+      line-height: 30px;
+      border-radius: 15px;
+      text-align: center;
+      padding: 0 5px;
+
+      .icon-xiala {
+        font-size: 10px;
+      }
+    }
+  }
+</style>
