@@ -88,6 +88,21 @@ let store = new Vuex.Store({
 
   actions: {
     /**
+     * 调用 百度api 。获取当前的城市名称
+     */
+    getCityName ({ commit }) {
+      /* eslint-disable */
+      var myCity = new BMap.LocalCity();
+
+      myCity.get((result) => {
+        console.log('123213123');
+        console.log(result);
+        commit('chgCityName', {
+          name: result.name
+        });
+      })
+    },
+    /**
      * 获取城市列表数据
      */
     getCityData ({ commit, state, getters }) {

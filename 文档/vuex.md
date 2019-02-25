@@ -104,3 +104,10 @@ Vuex.mapState({
 ################
   ##对象展开运算符
     ...obj1
+
+
+
+## moduels
+  使用了 moduels 推荐大家都使用上命名空间：
+  在模块中写上：
+      namespaced: true
