@@ -92,30 +92,30 @@ export default {
       return this.$store.state.curCityName;
     }
     // filterCityData () {
-      // let hash = {};
-      // let i = 0;
-      // let res = [];
-      // this.cityData.forEach(item => {
-      //   // 1、得到当前城市的 首字母
-      //   let firstLetter = item.pinyin.substr(0, 1).toUpperCase();
-      //   // 判断当前城市的 首字母是循环过程中第一次出现，还是多次出现
-      //   if (hash[firstLetter]) {
-      //     // 存在
-      //     let index = hash[firstLetter] - 1;
-      //     res[index].list.push(item);
-      //   } else {
-      //     // 不存在
-      //     hash[firstLetter] = ++i;
-      //     let obj = {};
-      //     obj.py = firstLetter;
-      //     obj.list = [item];
-      //     res.push(obj);
-      //   }
-      // })
-      // let temp = res.sort((a, b) => {
-      //  return a.py.charCodeAt() - b.py.charCodeAt();
-      // })
-      // return temp;
+    // let hash = {};
+    // let i = 0;
+    // let res = [];
+    // this.cityData.forEach(item => {
+    //   // 1、得到当前城市的 首字母
+    //   let firstLetter = item.pinyin.substr(0, 1).toUpperCase();
+    //   // 判断当前城市的 首字母是循环过程中第一次出现，还是多次出现
+    //   if (hash[firstLetter]) {
+    //     // 存在
+    //     let index = hash[firstLetter] - 1;
+    //     res[index].list.push(item);
+    //   } else {
+    //     // 不存在
+    //     hash[firstLetter] = ++i;
+    //     let obj = {};
+    //     obj.py = firstLetter;
+    //     obj.list = [item];
+    //     res.push(obj);
+    //   }
+    // })
+    // let temp = res.sort((a, b) => {
+    //  return a.py.charCodeAt() - b.py.charCodeAt();
+    // })
+    // return temp;
     // },
     /**
      * 右侧显示的字母数据

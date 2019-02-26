@@ -12,7 +12,7 @@ let store = new Vuex.Store({
   // 状态 - 项目中需要用的数据 （需要在多个组件中使用的数据）
   state: {
     // 当前定位or切换的城市名称
-    curCityName: '深圳',
+    curCityName: '',
 
     // 城市列表数据
     cityData: []
@@ -95,8 +95,8 @@ let store = new Vuex.Store({
       var myCity = new BMap.LocalCity();
 
       myCity.get((result) => {
-        console.log('123213123');
-        console.log(result);
+        // console.log('123213123');
+        // console.log(result);
         commit('chgCityName', {
           name: result.name
         });
